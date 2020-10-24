@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title> application</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card mt-4">
+        <div class="card-header">
+            Calc du reste de la divistion sur 3
+        </div>
+        <div class="card-body">
+
+            <form>
+                <div class="form-group">
+                    <label for="number">Nombre</label>
+                    <input type="text" class="form-control" id="number"
+                           aria-describedby="emailHelp" placeholder="Veuillez entrer le nombre">
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="calcul()">Calculer</button>
+            </form>
+            <div id="res"></div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<script type="text/javascript">
+
+
+    function calcul() {
+
+        let res;
+        let element;
+        let chaine;
+        let extractCh;
+        let somme;
+        let number;
+
+        number = Number(document.getElementById("number").value);
+        chaine = number.toString();
+        extractCh = chaine.substring(0, (chaine.length));
+        somme = 0;
+        for (let i = 0; i < extractCh.length; i++) {
+            somme = somme + parseInt(extractCh[i], 10)
+        }
+
+        if (somme === 3 || somme === 9 || somme === 6) {
+            res = number + ' divisible sur 3';
+            alert(res);
+
+
+        } else {
+            res = number + ' n\'est pas divisible sur 3'
+            alert(res);
+
+        }
+
+
+    }
+
+    function init() {
+
+        console.log('bonjour');
+    }
+
+    window.onload = init;
+
+</script>
+</body>
+</html>
